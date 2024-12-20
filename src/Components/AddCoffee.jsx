@@ -27,7 +27,7 @@ const AddCoffee = () => {
     console.log("New Coffee:", newCoffee);
 
     // POST request to server
-    fetch("http://localhost:8000/coffee", {
+    fetch("https://coffee-store-server-4ji8.onrender.com/coffee", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

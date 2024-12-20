@@ -37,7 +37,7 @@ const SignUp = () => {
         };
 
         // Make a POST request to your backend to store the user data in MongoDB
-        fetch("http://localhost:8000/user", {
+        fetch("https://coffee-store-server-4ji8.onrender.com/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

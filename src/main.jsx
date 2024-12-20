@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader: () => fetch("http://localhost:8000/coffee"),
+    loader: () => fetch("https://coffee-store-server-4ji8.onrender.com/coffee"),
   },
   {
     path: "addCoffee",
@@ -24,7 +24,10 @@ const router = createBrowserRouter([
   {
     path: "updateCoffee/:id", // Add :id to the path
     element: <UpdateCoffee />,
-    loader: ({ params }) => fetch(`http://localhost:8000/coffee/${params.id}`), // Correctly destructure params
+    loader: ({ params }) =>
+      fetch(
+        `https://coffee-store-server-4ji8.onrender.com/coffee/${params.id}`
+      ), // Correctly destructure params
   },
   {
     path: "deleteCoffee",
@@ -41,7 +44,7 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: <Users></Users>,
-    loader: () => fetch("http://localhost:8000/users"),
+    loader: () => fetch("https://coffee-store-server-4ji8.onrender.com/users"),
   },
 ]);
 

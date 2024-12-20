@@ -33,7 +33,7 @@ const CoffeeCard = ({ coffee, backgroundImage, setCoffees }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:8000/coffee/${_id}`, {
+        fetch(`https://coffee-store-server-4ji8.onrender.com/coffee/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

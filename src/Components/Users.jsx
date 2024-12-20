@@ -5,7 +5,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/user")
+    fetch("https://coffee-store-server-4ji8.onrender.com/user")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
@@ -18,7 +18,7 @@ const Users = () => {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:8000/user/${id}`, {
+    fetch(`https://coffee-store-server-4ji8.onrender.com/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

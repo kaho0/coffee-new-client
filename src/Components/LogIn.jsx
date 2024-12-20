@@ -16,7 +16,7 @@ const LogIn = () => {
     console.log("User Credentials:", userCredentials);
 
     // POST request to server
-    fetch("http://localhost:8000/login", {
+    fetch("https://coffee-store-server-4ji8.onrender.com/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

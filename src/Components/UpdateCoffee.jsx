@@ -39,13 +39,16 @@ const UpdateCoffee = () => {
     console.log("Updated Coffee:", updatedCoffee);
 
     try {
-      const res = await fetch(`http://localhost:8000/coffee/${_id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedCoffee),
-      });
+      const res = await fetch(
+        `https://coffee-store-server-4ji8.onrender.com/coffee/${_id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedCoffee),
+        }
+      );
 
       const data = await res.json();
       console.log("Response from server:", data);
