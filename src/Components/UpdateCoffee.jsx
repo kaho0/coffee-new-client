@@ -4,7 +4,19 @@ import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
   const coffee = useLoaderData();
-  const { _id, name, chef, supplier, taste, category, details, photo } = coffee;
+  const {
+    _id,
+    name,
+    description,
+    image,
+    category,
+    strength,
+    price,
+    size,
+    temperature,
+    calories,
+    ingredients,
+  } = coffee;
 
   const handleUpdateCoffee = async (e) => {
     e.preventDefault();
@@ -13,12 +25,15 @@ const UpdateCoffee = () => {
     // Extract form values
     const updatedCoffee = {
       name: form.name.value,
-      chef: form.chef.value,
-      supplier: form.supplier.value,
-      taste: form.taste.value,
+      description: form.description.value,
+      image: form.image.value,
       category: form.category.value,
-      details: form.details.value,
-      photo: form.photo.value,
+      strength: form.strength.value,
+      price: parseFloat(form.price.value),
+      size: form.size.value,
+      temperature: form.temperature.value,
+      calories: parseInt(form.calories.value, 10),
+      ingredients: form.ingredients.value.split(",").map((item) => item.trim()),
     };
 
     console.log("Updated Coffee:", updatedCoffee);
@@ -94,37 +109,25 @@ const UpdateCoffee = () => {
           </div>
           <div>
             <label className="block mb-2 text-inputText font-raleway text-left">
-              Chef
+              Description
             </label>
             <input
               type="text"
-              name="chef"
-              defaultValue={chef}
-              placeholder="Enter coffee chef"
+              name="description"
+              defaultValue={description}
+              placeholder="Enter coffee description"
               className="input input-bordered w-full text-inputText font-raleway"
             />
           </div>
           <div>
             <label className="block mb-2 text-inputText font-raleway text-left">
-              Supplier
+              Image URL
             </label>
             <input
               type="text"
-              name="supplier"
-              defaultValue={supplier}
-              placeholder="Enter coffee supplier"
-              className="input input-bordered w-full text-inputText font-raleway"
-            />
-          </div>
-          <div>
-            <label className="block mb-2 text-inputText font-raleway text-left">
-              Taste
-            </label>
-            <input
-              type="text"
-              name="taste"
-              defaultValue={taste}
-              placeholder="Enter coffee taste"
+              name="image"
+              defaultValue={image}
+              placeholder="Enter coffee image URL"
               className="input input-bordered w-full text-inputText font-raleway"
             />
           </div>
@@ -142,25 +145,74 @@ const UpdateCoffee = () => {
           </div>
           <div>
             <label className="block mb-2 text-inputText font-raleway text-left">
-              Details
+              Strength
             </label>
             <input
               type="text"
-              name="details"
-              defaultValue={details}
-              placeholder="Enter coffee details"
+              name="strength"
+              defaultValue={strength}
+              placeholder="Enter coffee strength"
+              className="input input-bordered w-full text-inputText font-raleway"
+            />
+          </div>
+          <div>
+            <label className="block mb-2 text-inputText font-raleway text-left">
+              Price ($)
+            </label>
+            <input
+              type="number"
+              step="0.01"
+              name="price"
+              defaultValue={price}
+              placeholder="Enter coffee price"
+              className="input input-bordered w-full text-inputText font-raleway"
+            />
+          </div>
+          <div>
+            <label className="block mb-2 text-inputText font-raleway text-left">
+              Size
+            </label>
+            <input
+              type="text"
+              name="size"
+              defaultValue={size}
+              placeholder="Enter coffee size"
+              className="input input-bordered w-full text-inputText font-raleway"
+            />
+          </div>
+          <div>
+            <label className="block mb-2 text-inputText font-raleway text-left">
+              Temperature
+            </label>
+            <input
+              type="text"
+              name="temperature"
+              defaultValue={temperature}
+              placeholder="Enter coffee temperature"
+              className="input input-bordered w-full text-inputText font-raleway"
+            />
+          </div>
+          <div>
+            <label className="block mb-2 text-inputText font-raleway text-left">
+              Calories
+            </label>
+            <input
+              type="number"
+              name="calories"
+              defaultValue={calories}
+              placeholder="Enter coffee calories"
               className="input input-bordered w-full text-inputText font-raleway"
             />
           </div>
           <div className="col-span-2">
             <label className="block mb-2 text-inputText font-raleway text-left">
-              Photo
+              Ingredients (comma-separated)
             </label>
             <input
               type="text"
-              name="photo"
-              defaultValue={photo}
-              placeholder="Enter photo URL"
+              name="ingredients"
+              defaultValue={ingredients.join(", ")}
+              placeholder="Enter coffee ingredients"
               className="input input-bordered w-full text-inputText font-raleway"
             />
           </div>
